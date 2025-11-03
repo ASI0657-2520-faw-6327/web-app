@@ -2,8 +2,6 @@ import { Routes, Route } from 'react-router-dom';
 import { ROUTES } from '../types/routes';
 
 import { IAMRouter } from '../../features/iam/components/IAMRouter';
-import { ProfileRouter } from '../../features/profile/components/ProfileRouter';
-import { ReportRouter } from '../../features/report/components/ReportRouter';
 import { RideRouter } from '../../features/ride/components/RideRouter';
 
 const HomePage = () => (
@@ -39,8 +37,6 @@ export const AppRouter = () => {
         
         {/* Rutas de cada feature */}
         <Route path={`${ROUTES.IAM.BASE}/*`} element={<IAMRouter />} />
-        <Route path={`${ROUTES.PROFILE.BASE}/*`} element={<ProfileRouter />} />
-        <Route path={`${ROUTES.REPORT.BASE}/*`} element={<ReportRouter />} />
         <Route path={`${ROUTES.RIDE.BASE}/*`} element={<RideRouter />} />
         
         {/* Ruta catch-all para páginas no encontradas */}
