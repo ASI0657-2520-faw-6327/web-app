@@ -2,6 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import { ROUTES } from '../types/routes';
 
 import { IAMRouter } from '../../features/iam/components/IAMRouter';
+import { ProfileRouter } from '../../features/profile/components/ProfileRouter';
+import { ReportRouter } from '../../features/report/components/ReportRouter';
 import { RideRouter } from '../../features/ride/components/RideRouter';
 
 const HomePage = () => (
@@ -14,6 +16,12 @@ const HomePage = () => (
       </a>
       <a href="/rides" style={{ padding: '0.5rem 1rem', backgroundColor: '#dc3545', color: 'white', textDecoration: 'none', borderRadius: '4px' }}>
         Viajes
+      </a>
+      <a href="/profile" style={{ padding: '0.5rem 1rem', backgroundColor: '#28a745', color: 'white', textDecoration: 'none', borderRadius: '4px' }}>
+        Mi Perfil
+      </a>
+      <a href="/profile/profiles" style={{ padding: '0.5rem 1rem', backgroundColor: '#28a745', color: 'white', textDecoration: 'none', borderRadius: '4px' }}>
+        Ver Perfiles
       </a>
     </div>
   </div>
@@ -37,6 +45,8 @@ export const AppRouter = () => {
         
         {/* Rutas de cada feature */}
         <Route path={`${ROUTES.IAM.BASE}/*`} element={<IAMRouter />} />
+        <Route path={`${ROUTES.PROFILE.BASE}/*`} element={<ProfileRouter />} />
+        <Route path={`${ROUTES.REPORT.BASE}/*`} element={<ReportRouter />} />
         <Route path={`${ROUTES.RIDE.BASE}/*`} element={<RideRouter />} />
         
         {/* Ruta catch-all para páginas no encontradas */}
