@@ -17,6 +17,12 @@ const HomePage = () => (
       <a href="/rides" style={{ padding: '0.5rem 1rem', backgroundColor: '#dc3545', color: 'white', textDecoration: 'none', borderRadius: '4px' }}>
         Viajes
       </a>
+      <a href="/profile" style={{ padding: '0.5rem 1rem', backgroundColor: '#28a745', color: 'white', textDecoration: 'none', borderRadius: '4px' }}>
+        Mi Perfil
+      </a>
+      <a href="/profile/profiles" style={{ padding: '0.5rem 1rem', backgroundColor: '#28a745', color: 'white', textDecoration: 'none', borderRadius: '4px' }}>
+        Ver Perfiles
+      </a>
     </div>
   </div>
 );
