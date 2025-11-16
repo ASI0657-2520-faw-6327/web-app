@@ -146,7 +146,7 @@ export const ProfileSettingsPage = () => {
 
   return (
     <div className="surface-ground min-h-screen py-4">
-      <div className="surface-card p-4 shadow-2 border-round w-full lg:w-8 mx-auto">
+      <div className="surface-card p-4 shadow-2 border-round w-full mx-auto">
         <div className="mb-4">
           <h1 className="text-2xl font-bold text-900 mb-2">
             <i className="pi pi-cog mr-2"></i>
@@ -165,71 +165,59 @@ export const ProfileSettingsPage = () => {
           </div>
         )}
 
-        <div className="grid">
+        <div className="flex flex-column gap-4">
           <div className="col-12">
             <Panel header={notificationPanelHeader} className="mb-4">
-              <div className="grid">
-                <div className="col-12 md:col-6">
-                  <div className="field">
-                    <div className="flex align-items-center justify-content-between mb-3">
-                      <div>
-                        <label className="block text-900 font-medium mb-1">Email</label>
-                        <small className="text-600">Recibir notificaciones por correo electrónico</small>
-                      </div>
-                      <InputSwitch 
-                        checked={settings.notifications.email} 
-                        onChange={() => handleNotificationChange('email')}
-                      />
-                    </div>
-                    
-                    <div className="flex align-items-center justify-content-between mb-3">
-                      <div>
-                        <label className="block text-900 font-medium mb-1">Push</label>
-                        <small className="text-600">Notificaciones en el navegador</small>
-                      </div>
-                      <InputSwitch 
-                        checked={settings.notifications.push} 
-                        onChange={() => handleNotificationChange('push')}
-                      />
-                    </div>
-                    
-                    <div className="flex align-items-center justify-content-between">
-                      <div>
-                        <label className="block text-900 font-medium mb-1">SMS</label>
-                        <small className="text-600">Mensajes de texto importantes</small>
-                      </div>
-                      <InputSwitch 
-                        checked={settings.notifications.sms} 
-                        onChange={() => handleNotificationChange('sms')}
-                      />
-                    </div>
+              <div className="flex flex-column gap-3">
+                <div className="flex align-items-center justify-content-between">
+                  <div>
+                    <label className="block text-900 font-medium">Email</label>
+                    <small className="text-600">Recibir notificaciones por correo electrónico</small>
                   </div>
+                  <InputSwitch 
+                    checked={settings.notifications.email} 
+                    onChange={() => handleNotificationChange('email')}
+                  />
                 </div>
-                
-                <div className="col-12 md:col-6">
-                  <div className="field">
-                    <div className="flex align-items-center justify-content-between mb-3">
-                      <div>
-                        <label className="block text-900 font-medium mb-1">Recordatorios de viaje</label>
-                        <small className="text-600">Alertas antes de tus viajes programados</small>
-                      </div>
-                      <InputSwitch 
-                        checked={settings.notifications.rideReminders} 
-                        onChange={() => handleNotificationChange('rideReminders')}
-                      />
-                    </div>
-                    
-                    <div className="flex align-items-center justify-content-between">
-                      <div>
-                        <label className="block text-900 font-medium mb-1">Promociones</label>
-                        <small className="text-600">Ofertas y descuentos especiales</small>
-                      </div>
-                      <InputSwitch 
-                        checked={settings.notifications.promotional} 
-                        onChange={() => handleNotificationChange('promotional')}
-                      />
-                    </div>
+                <div className="flex align-items-center justify-content-between">
+                  <div>
+                    <label className="block text-900 font-medium">Push</label>
+                    <small className="text-600">Notificaciones en el navegador</small>
                   </div>
+                  <InputSwitch 
+                    checked={settings.notifications.push} 
+                    onChange={() => handleNotificationChange('push')}
+                  />
+                </div>
+                <div className="flex align-items-center justify-content-between">
+                  <div>
+                    <label className="block text-900 font-medium">SMS</label>
+                    <small className="text-600">Mensajes de texto importantes</small>
+                  </div>
+                  <InputSwitch 
+                    checked={settings.notifications.sms} 
+                    onChange={() => handleNotificationChange('sms')}
+                  />
+                </div>
+                <div className="flex align-items-center justify-content-between">
+                  <div>
+                    <label className="block text-900 font-medium">Recordatorios de viaje</label>
+                    <small className="text-600">Alertas antes de tus viajes programados</small>
+                  </div>
+                  <InputSwitch 
+                    checked={settings.notifications.rideReminders} 
+                    onChange={() => handleNotificationChange('rideReminders')}
+                  />
+                </div>
+                <div className="flex align-items-center justify-content-between">
+                  <div>
+                    <label className="block text-900 font-medium">Promociones</label>
+                    <small className="text-600">Ofertas y descuentos especiales</small>
+                  </div>
+                  <InputSwitch 
+                    checked={settings.notifications.promotional} 
+                    onChange={() => handleNotificationChange('promotional')}
+                  />
                 </div>
               </div>
             </Panel>
@@ -237,57 +225,46 @@ export const ProfileSettingsPage = () => {
 
           <div className="col-12">
             <Panel header={privacyPanelHeader} className="mb-4">
-              <div className="grid">
-                <div className="col-12 md:col-6">
-                  <div className="field">
-                    <div className="flex align-items-center justify-content-between mb-3">
-                      <div>
-                        <label className="block text-900 font-medium mb-1">Perfil visible</label>
-                        <small className="text-600">Otros usuarios pueden ver tu perfil</small>
-                      </div>
-                      <InputSwitch 
-                        checked={settings.privacy.profileVisible} 
-                        onChange={() => handlePrivacyChange('profileVisible')}
-                      />
-                    </div>
-                    
-                    <div className="flex align-items-center justify-content-between mb-3">
-                      <div>
-                        <label className="block text-900 font-medium mb-1">Mostrar email</label>
-                        <small className="text-600">Tu email es visible en el perfil</small>
-                      </div>
-                      <InputSwitch 
-                        checked={settings.privacy.showEmail} 
-                        onChange={() => handlePrivacyChange('showEmail')}
-                      />
-                    </div>
-                    
-                    <div className="flex align-items-center justify-content-between">
-                      <div>
-                        <label className="block text-900 font-medium mb-1">Mostrar teléfono</label>
-                        <small className="text-600">Tu número es visible en el perfil</small>
-                      </div>
-                      <InputSwitch 
-                        checked={settings.privacy.showPhone} 
-                        onChange={() => handlePrivacyChange('showPhone')}
-                      />
-                    </div>
+              <div className="flex flex-column gap-3">
+                <div className="flex align-items-center justify-content-between">
+                  <div>
+                    <label className="block text-900 font-medium">Perfil visible</label>
+                    <small className="text-600">Otros usuarios pueden ver tu perfil</small>
                   </div>
+                  <InputSwitch 
+                    checked={settings.privacy.profileVisible} 
+                    onChange={() => handlePrivacyChange('profileVisible')}
+                  />
                 </div>
-                
-                <div className="col-12 md:col-6">
-                  <div className="field">
-                    <div className="flex align-items-center justify-content-between">
-                      <div>
-                        <label className="block text-900 font-medium mb-1">Mostrar calificación</label>
-                        <small className="text-600">Tu valoración es pública</small>
-                      </div>
-                      <InputSwitch 
-                        checked={settings.privacy.showRating} 
-                        onChange={() => handlePrivacyChange('showRating')}
-                      />
-                    </div>
+                <div className="flex align-items-center justify-content-between">
+                  <div>
+                    <label className="block text-900 font-medium">Mostrar email</label>
+                    <small className="text-600">Tu email es visible en el perfil</small>
                   </div>
+                  <InputSwitch 
+                    checked={settings.privacy.showEmail} 
+                    onChange={() => handlePrivacyChange('showEmail')}
+                  />
+                </div>
+                <div className="flex align-items-center justify-content-between">
+                  <div>
+                    <label className="block text-900 font-medium">Mostrar teléfono</label>
+                    <small className="text-600">Tu número es visible en el perfil</small>
+                  </div>
+                  <InputSwitch 
+                    checked={settings.privacy.showPhone} 
+                    onChange={() => handlePrivacyChange('showPhone')}
+                  />
+                </div>
+                <div className="flex align-items-center justify-content-between">
+                  <div>
+                    <label className="block text-900 font-medium">Mostrar calificación</label>
+                    <small className="text-600">Tu valoración es pública</small>
+                  </div>
+                  <InputSwitch 
+                    checked={settings.privacy.showRating} 
+                    onChange={() => handlePrivacyChange('showRating')}
+                  />
                 </div>
               </div>
             </Panel>
@@ -295,57 +272,50 @@ export const ProfileSettingsPage = () => {
 
           <div className="col-12">
             <Panel header={preferencesPanelHeader} className="mb-4">
-              <div className="grid">
-                <div className="col-12 md:col-6">
-                  <div className="field">
-                    <label className="block text-900 font-medium mb-2">Idioma</label>
-                    <Dropdown 
-                      value={settings.preferences.language}
-                      options={languages}
-                      optionLabel="name"
-                      placeholder="Selecciona un idioma"
-                      className="w-full"
-                      onChange={(e) => handlePreferenceChange('language', e.value)}
-                    />
-                  </div>
-                  
-                  <div className="field">
-                    <label className="block text-900 font-medium mb-2">Tema</label>
-                    <Dropdown 
-                      value={settings.preferences.theme}
-                      options={themes}
-                      optionLabel="name"
-                      placeholder="Selecciona un tema"
-                      className="w-full"
-                      onChange={(e) => handlePreferenceChange('theme', e.value)}
-                    />
-                  </div>
+              <div className="flex flex-column gap-4">
+                <div className="field">
+                  <label className="block text-900 font-medium mb-2">Idioma</label>
+                  <Dropdown 
+                    value={settings.preferences.language}
+                    options={languages}
+                    optionLabel="name"
+                    placeholder="Selecciona un idioma"
+                    className="w-full"
+                    onChange={(e) => handlePreferenceChange('language', e.value)}
+                  />
                 </div>
-                
-                <div className="col-12 md:col-6">
-                  <div className="field">
-                    <label className="block text-900 font-medium mb-2">Zona Horaria</label>
-                    <Dropdown 
-                      value={settings.preferences.timezone}
-                      options={timezones}
-                      optionLabel="name"
-                      placeholder="Selecciona zona horaria"
-                      className="w-full"
-                      onChange={(e) => handlePreferenceChange('timezone', e.value)}
-                    />
-                  </div>
-                  
-                  <div className="field">
-                    <label className="block text-900 font-medium mb-2">Moneda</label>
-                    <Dropdown 
-                      value={settings.preferences.currency}
-                      options={currencies}
-                      optionLabel="name"
-                      placeholder="Selecciona moneda"
-                      className="w-full"
-                      onChange={(e) => handlePreferenceChange('currency', e.value)}
-                    />
-                  </div>
+                <div className="field">
+                  <label className="block text-900 font-medium mb-2">Tema</label>
+                  <Dropdown 
+                    value={settings.preferences.theme}
+                    options={themes}
+                    optionLabel="name"
+                    placeholder="Selecciona un tema"
+                    className="w-full"
+                    onChange={(e) => handlePreferenceChange('theme', e.value)}
+                  />
+                </div>
+                <div className="field">
+                  <label className="block text-900 font-medium mb-2">Zona Horaria</label>
+                  <Dropdown 
+                    value={settings.preferences.timezone}
+                    options={timezones}
+                    optionLabel="name"
+                    placeholder="Selecciona zona horaria"
+                    className="w-full"
+                    onChange={(e) => handlePreferenceChange('timezone', e.value)}
+                  />
+                </div>
+                <div className="field">
+                  <label className="block text-900 font-medium mb-2">Moneda</label>
+                  <Dropdown 
+                    value={settings.preferences.currency}
+                    options={currencies}
+                    optionLabel="name"
+                    placeholder="Selecciona moneda"
+                    className="w-full"
+                    onChange={(e) => handlePreferenceChange('currency', e.value)}
+                  />
                 </div>
               </div>
             </Panel>
